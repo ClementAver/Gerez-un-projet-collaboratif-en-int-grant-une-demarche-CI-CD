@@ -16,23 +16,17 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up JDK 11
       uses: actions/setup-java@v4
       with:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: List files in the repository
-      run: ls 
-    - name: List files in the back repository
-      run: |
-        cd back
-        ls 
+
     - name: Build with Maven
       run: |
         cd back
