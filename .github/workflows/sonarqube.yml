@@ -106,7 +106,7 @@ jobs:
       - name: Download Frontend Coverage Report
         uses: actions/download-artifact@v4
         with:
-          name: frontend-coverage
+          name: karma-report
           path: front/coverage
 
       - name: SonarCloud Scan (Multi-module)
