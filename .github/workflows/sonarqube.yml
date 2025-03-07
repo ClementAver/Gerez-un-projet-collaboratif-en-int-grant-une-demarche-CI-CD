@@ -119,12 +119,16 @@ jobs:
         with:
           merge-multiple: true
 
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
       - name: List files in the back repository
         run: |
           cd back
           ls
 
-      - name: List files in the back repository
+      - name: List files in the target repository
         run: |
           cd target
           ls
