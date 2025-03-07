@@ -114,6 +114,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v4
+        merge-multiple: true
+
       - name: List files in the back repository
         run: |
           cd back
@@ -123,24 +127,6 @@ jobs:
         run: |
           cd target
           ls
-
-      - name: Download back/target
-        uses: actions/download-artifact@v4
-        with:
-          name: target
-          path: back/target
-
-      - name: Download Backend Coverage Report
-        uses: actions/download-artifact@v4
-        with:
-          name: jacoco-report
-          path: back/target/site/jacoco
-
-      - name: Download Frontend Coverage Report
-        uses: actions/download-artifact@v4
-        with:
-          name: karma-report
-          path: front/coverage
 
       - name: SonarCloud Scan (Multi-module)
         uses: SonarSource/sonarcloud-github-action@v2
