@@ -124,6 +124,12 @@ jobs:
           cd target
           ls
 
+      - name: Download back/target
+        uses: actions/download-artifact@v4
+        with:
+          name: target
+          path: back/target
+
       - name: Download Backend Coverage Report
         uses: actions/download-artifact@v4
         with:
