@@ -40,3 +40,9 @@ jobs:
         run: |
           cd back
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ClementAver_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+
+      - name: Upload SonarQube report to artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-report
+          path: back/target/sonar
