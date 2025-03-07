@@ -117,12 +117,6 @@ jobs:
           cd back
           ls
 
-      - name: List files in the target folder
-        run: |
-          cd back
-          cd target
-          ls
-
       - name: SonarCloud Scan (Multi-module)
         uses: SonarSource/sonarcloud-github-action@v2
         with:
