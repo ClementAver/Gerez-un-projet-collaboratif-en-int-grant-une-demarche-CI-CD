@@ -60,6 +60,11 @@ jobs:
           name: jacoco-report
           path: back/target/site/jacoco
 
+      - name: List files in the back repository
+        run: |
+          cd back
+          ls
+
   frontend-build:
     name: Analyze Frontend
     runs-on: ubuntu-latest
