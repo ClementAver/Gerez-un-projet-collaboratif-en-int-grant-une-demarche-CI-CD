@@ -48,13 +48,21 @@ jobs:
           cd back
           mvn test --file pom.xml
 
-      - name: Upload /target  to artifact
+      - name: Archive target directory
+        run: tar -czf target.tar.gz -C back target
+
+      - name: Upload target.tar.gz as an artifact
         uses: actions/upload-artifact@v4
         with:
           name: target
-          path: back/target/site/jacoco
+          path: target.tar.gz
 
-      - name: List files in the back repository
+      - name: List files in ./back/
+        run: |
+          cd back
+          ls
+
+      - name: List files in the ./back/target/
         run: |
           cd back
           ls
@@ -109,6 +117,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           merge-multiple: true
+
+      - name: Extract backend target archive
+        run: tar -xzf back-target.tar.gz -C back
 
       - name: Display repository tree
         run: tree .
