@@ -118,11 +118,11 @@ jobs:
         with:
           merge-multiple: true
 
-      - name: Display repository tree
-        run: tree .
-
       - name: Extract backend target archive
         run: tar -xzf target.tar.gz -C back
+
+      - name: Display repository tree
+        run: tree .
 
       #- name: Build with Maven
       #  run: |
