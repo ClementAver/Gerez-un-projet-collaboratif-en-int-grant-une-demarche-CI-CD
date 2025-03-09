@@ -1,10 +1,9 @@
-version: '3'
-
 services:
   back:
-    build: 
-      context: ./back
-      dockerfile: Dockerfile
+    # build: 
+      # context: ./back
+      # dockerfile: Dockerfile
+    image: clementaver/bobapp-backend:latest
     container_name: bobapp-backend
     networks:
       - bobapp-network
@@ -12,9 +11,10 @@ services:
       - "8080:8080"
 
   front:
-    build: 
-      context: ./front
-      dockerfile: Dockerfile
+    # build: 
+      # context: ./front
+      # dockerfile: Dockerfile
+    image: clementaver/bobapp-frontend:latest
     container_name: bobapp-frontend
     networks:
       - bobapp-network
